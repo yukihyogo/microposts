@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   def show # 追加
+
+# binding.pry
+
    @user = User.find(params[:id])
   end
   
@@ -9,9 +12,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
-binding.pry
-
     if @user.save
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user # ここを修正
