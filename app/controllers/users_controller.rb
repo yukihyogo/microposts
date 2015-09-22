@@ -29,12 +29,8 @@ class UsersController < ApplicationController
 
 #binding.pry
 
-#    @user.attributes = params[:user]
-#    @user.attributes = user_params
-
-#    if @user.save
-    if @user.update(user_params)
 #    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       flash[:success] = "更新しました。"
       redirect_to @user
     else
@@ -49,14 +45,9 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email,
+    params.require(:user).permit(:name, :email, :password,
+                                 :password_confirmation,
                                  :place, :profile)
   end
-
-#  def user_params
-#    params.require(:user).permit(:name, :email, :password,
-#                                 :password_confirmation,
-#                                 :place, :profile)
-#  end
 
 end

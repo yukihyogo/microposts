@@ -31,6 +31,8 @@
 =end
 %>
 
+          <%= render 'shared/error_messages', object: f.object %>
+
           <%= f.label :name, "名前" %>
           <%= f.text_field :name, class: 'form-control' %>
     
