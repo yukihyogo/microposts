@@ -3,34 +3,8 @@
 </h1>
 
 <div class="row">
-<%
-=begin
-%>
-    <%= form_for(:session, url: edit_path) do |f| %>
-<%
-=end
-%>
     <%= form_for(@user) do |f| %>
       <div class="col-md-6 col-md-offset-3">
-
-<%
-=begin
-%>
-
-<% binding.pry %>
-
-<%
-=end
-%>
-<%
-=begin
-%>
-          <%= f.label :name , "名前" %>
-          <%= f.text_field :name, "test", class: 'form-control' %>
-<%
-=end
-%>
-
           <%= render 'shared/error_messages', object: f.object %>
 
           <%= f.label :name, "名前" %>
@@ -50,44 +24,3 @@
       </div>
     <% end %>
 </div>
-
-
-<%
-=begin
-%>
-<!--
-<form class="form-horizontal">
-    <div class="form-group">
-        <label for="UserName" class="col-md-2 control-label">名前</label>
-        <div class="col-sm-8">
-          <input type="test" class="form-control" id="UserName" placeholder="" value=<%= @user.name %>>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="Email" class="col-md-2 control-label">メールアドレス</label>
-        <div class="col-sm-8">
-          <input type="email" class="form-control" id="Email"  value=<%= @user.email %>>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="Place" class="col-md-2 control-label">地域</label>
-        <div class="col-sm-8">
-          <input type="tel" class="form-control" id="Place" value=<%= @user.place %>>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="Profile" class="col-md-2 control-label">自己紹介</label>
-        <div class="col-sm-8">
-          <textarea rows="5" class="form-control" id="Profile" value=<%= @user.profile %>></textarea>
-        </div>
-    </div>
-	<div class="form-group">
-		<div class="col-md-offset-8 col-sm-2">
-            <button type="submit" class="btn btn-success btn-block">変更</button>
-        </div>
-    </div>    
-</form>
--->
-<%
-=end
-%>
