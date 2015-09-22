@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-  def show # 追加
+  before_action :set_user, only: [:show, :edit, :update]
 
-# binding.pry
-
-   @user = User.find(params[:id])
+  def show
+#   @user = User.find(params[:id])
   end
   
   def new
@@ -14,16 +13,50 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user # ここを修正
+      redirect_to @user
     else
       render 'new'
+    end
+  end
+  
+  def edit
+#    @user = User.find(params[:id])
+  end
+  
+  def update
+    
+#    @user = User.find(params[:id])
+
+#binding.pry
+
+#    @user.attributes = params[:user]
+#    @user.attributes = user_params
+
+#    if @user.save
+    if @user.update(user_params)
+#    if @user.update_attributes(user_params)
+      flash[:success] = "更新しました。"
+      redirect_to @user
+    else
+      render 'edit'
     end
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+  def set_user
+    @user = User.find(params[:id])
   end
+
+  def user_params
+    params.require(:user).permit(:name, :email,
+                                 :place, :profile)
+  end
+
+#  def user_params
+#    params.require(:user).permit(:name, :email, :password,
+#                                 :password_confirmation,
+#                                 :place, :profile)
+#  end
+
 end
