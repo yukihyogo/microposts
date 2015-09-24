@@ -1,0 +1,14 @@
+<li>
+    <div>
+        <%= link_to following do %>
+            <%= gravatar_for(following, size:50) %>
+        <% end %>
+    </div>
+    <div>
+        <div class="user_count"><%= link_to following.name, following %></div>
+        <div class="user_count">microposts : <%= following.microposts.count %></div>
+        <span class="user_count">followings : <%= following.following_users.count %></span>
+        <span class="user_count">followers  : <%= following.follower_users.count %></span>
+    </div>
+    <div class="pfolile_in_line"><%= following.profile %></div>
+</li>
