@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   
+  match 'edit', to: 'users#edit', via: [:get, :post]
 
   resources :users do
     member do
