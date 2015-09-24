@@ -14,18 +14,18 @@
       </section>
     </div>
     <div class="row">
-      <section>
+      <section class="user_links">
         <div class="center col-md-4 col-xs-4">
-
+          <%= link_to user_path do %>
             <div>Micropostes</div>
             <div><%= @user.microposts.count %></div>
-
+          <% end %>
         </div>
         <div class="center col-md-4 col-xs-4">
-          <%= link_to followings_user_path do %>
+
             <div>Followings</div>
             <div><%= @user.following_users.count %></div>
-          <% end %>
+
         </div>
         <div class="center col-md-4 col-xs-4">
           <%= link_to followers_user_path do %>
@@ -36,22 +36,22 @@
       </section>
     </div>
     <div class="row">
-      <section>
+      <section class="user_profile">
         <div class="col-md-12">
           <%= @user.profile %>
         </div>
       </section>
     </div>
+
 <%
 =end
 %>
-
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3>Micropostes (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
+    <% if @user.following_users.any? %>
+      <h3>Followings (<%= @user.following_users.count %>)</h3>
+      <ol class="followings">
         <%= render @microposts %>
       </ol>
     <% end %>
