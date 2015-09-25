@@ -5,9 +5,12 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :password_digest
 
+      t.string :place
+      t.string :profile
+
       t.timestamps null: false
       
-      t.index :email, unique: true # この行を追加
+      t.index :email, unique: true
     end
   end
 end
