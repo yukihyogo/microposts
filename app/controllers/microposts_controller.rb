@@ -3,12 +3,28 @@ class MicropostsController < ApplicationController
     
     def create
         @micropost = current_user.microposts.build(micropost_params)
+
         if @micropost.save
             flash[:success] = "Micropost created!"
             redirect_to root_url
         else
             render 'static_pages/home'
         end
+    end
+
+    def retweet
+        @micropost = Micropost.new
+        @micropost.user_id = current_user.id
+        @micropost.Rt_id = params[:id]
+        @micropost.content = "-"
+
+        if @micropost.save
+            flash[:success] = "Micropost retweeted!"
+            redirect_to root_url
+        else
+            render 'static_pages/home'
+        end
+
     end
     
     def destroy

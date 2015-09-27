@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts
+  resources :microposts do
+    member do
+      post 'retweet'
+    end
+  end
   resources :relationships, only: [:create, :destroy]
 end
